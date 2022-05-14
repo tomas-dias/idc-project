@@ -15,7 +15,3 @@ sudo apt install -y mongodb-org
 sudo apt install python3-pip
 
 pip3 install pymongo
-
-python3 setup-db.py
-
-mongoimport --uri "mongodb://127.0.0.1:27017/" --db "battery-cycles" --file "offline_.json"
