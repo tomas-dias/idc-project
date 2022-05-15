@@ -11,7 +11,3 @@ sudo apt update
 
 # Install the MongoDB packages.
 sudo apt install -y mongodb-org
-
-sudo apt install python3-pip
-
-pip3 install pymongo
