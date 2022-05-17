@@ -1,8 +1,11 @@
 var query = [
+    { "$match" : {
+            "battery_ID" : msg.payload
+        }
+    },
     { "$group": {
         "_id": {
-            "type" : "$type", 
-            "battery_ID": msg.payload
+            "type" : "$type"
         },
         "avgTime": {"$avg": "$elapsed_time"},
         "counter" : { "$sum" : 1}
