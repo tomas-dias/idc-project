@@ -1,6 +1,11 @@
 var query = [
+    { "$match" : { 
+        "type" :  "charge",
+        "battery_ID" : msg.payload
+        }
+    },
+    
     { "$group": {
-        "_id": {"type" : "$type", "battery_ID": msg.payload},
         "avgTime": {"$avg": "$elapsed_time"},
         "counter" : {"$count": {}}
         }
