@@ -1,13 +1,8 @@
 var query = [
     { "$group": {
-        "_id": {"type" : "$type", "battery_ID": "id"},
-        "Counters": "$count"
-        }
-    },
-
-    { "$group": {
-        "_id": {"type" : "$type", "battery_ID": "id"},
-        "avgTime": {"$avg": "$elapsed_time"}
+        "_id": {"type" : "$type", "battery_ID": msg.payload},
+        "avgTime": {"$avg": "$elapsed_time"},
+        "counter" : {"$count": {}}
         }
     }
 ]
@@ -15,3 +10,5 @@ var query = [
 var newMsg = {
     payload: query 
 }
+
+return newMsg
