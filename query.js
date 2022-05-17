@@ -7,8 +7,9 @@ var query = [
         "_id": {
             "type" : "$type"
         },
+        "counter" : { "$sum" : 1},
         "avgTime": {"$avg": "$elapsed_time"},
-        "counter" : { "$sum" : 1}
+        "standardDeviation": {"$stdDevSamp": "$elapsed_time"}
         }
     }
 ]
