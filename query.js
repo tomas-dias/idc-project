@@ -12,6 +12,14 @@ var query = [
         "standardDeviation": {"$stdDevSamp": "$elapsed_time"},
         "minTemperature": {"$min" : "$temp_battery"}
         }
+    },
+    { "$unwind" : "$temp_battery"},
+    { "$group": {
+        "_id": {
+            "type" : "$type"
+        },
+        "minTemperature": {"$min" : "$temp_battery"}
+        }
     }
 ]
 
