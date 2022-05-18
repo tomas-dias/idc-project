@@ -9,16 +9,7 @@ var query = [
         },
         "counter" : { "$sum" : 1},
         "avgTime": {"$avg": "$elapsed_time"},
-        "standardDeviation": {"$stdDevSamp": "$elapsed_time"},
-        "minTemperature": {"$min" : "$temp_battery"}
-        }
-    },
-    { "$unwind" : "$temp_battery"},
-    { "$group": {
-        "_id": {
-            "type" : "$type"
-        },
-        "minTemperature": {"$min" : "$temp_battery"}
+        "standardDeviation": {"$stdDevSamp": "$elapsed_time"}
         }
     }
 ]
