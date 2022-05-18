@@ -19,7 +19,10 @@ var query = [
                     "_id": {
                         "type" : "$type"
                     },
-                    "minTempBattery" : {"$min" : "$temp_battery"}
+                    "minTempBattery" : {"$min" : "$temp_battery"},
+                    "maxTempBattery" : {"$max" : "$temp_battery"},
+                    "avgTempBattery" : {"$avg" : "$temp_battery"},
+                    "standardDeviation" : {"$stdDevSamp": "$temp_battery"}
                 }}
              ]
         }
