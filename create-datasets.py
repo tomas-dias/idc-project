@@ -2,8 +2,7 @@ import sys
 import pandas as pd
 import numpy as np
 
-FILE = sys.argv[0]
-print(FILE)
+FILE = 'result.json'
 
 #
 # Two functions to scale and unscale vectors, to and from [0, 1]
