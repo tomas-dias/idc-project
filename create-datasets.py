@@ -1,4 +1,3 @@
-import sys
 import pandas as pd
 import numpy as np
 
@@ -21,16 +20,17 @@ def unscale(x, minv, maxv):
 
 offline_data = pd.read_json(FILE)
 
-CycleNumber = offline_data.iloc[1]
-CycleType = offline_data.iloc[2]
+CycleNumber = offline_data["cycle_number"]
 
-BVoltage = offline_data.iloc[5]
-BCurrent = offline_data.iloc[6]
-BTemperature = offline_data.iloc[7]
-BCurrentLoad = offline_data.iloc[8]
-BVoltageLoad = offline_data.iloc[9]
-CycleTime = offline_data.iloc[10]
-CycleFinalTime = offline_data.iloc[11]
+CycleType = offline_data["type"]
+
+BVoltage = offline_data["voltage_battery"]
+BCurrent = offline_data["current_battery"]
+BTemperature = offline_data["temp_battery"]
+BCurrentLoad = offline_data["current_load"]
+BVoltageLoad = offline_data["voltage_load"]
+CycleTime = offline_data["time"]
+CycleFinalTime = offline_data["elapsed_time"]
 
 # Create two variables, DataSetC and DataSetD, to store charge and discharge data.
 # All the cycles will be stored.
@@ -97,8 +97,8 @@ TrainSetD = DataSetD[: round(Nd * 0.7), :]
 TestSetD = DataSetD[round(Nd * 0.7) :, :]
 
 # Writing files
-TrainSetC.to_csv('train_charge.csv')
-TestSetC.to_csv('test_charge.csv')
+TrainSetC.to_csv('datasets/train_charge.csv')
+TestSetC.to_csv('datasets/test_charge.csv')
 
-TrainSetD.to_csv('train_discharge.csv')
-TestSetD.to_csv('test_discharge.csv')
+TrainSetD.to_csv('datasets/train_discharge.csv')
+TestSetD.to_csv('datasets/test_discharge.csv')
