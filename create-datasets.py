@@ -1,9 +1,9 @@
 import sys
 import pandas as pd
 import numpy as np
-from matplotlib import pyplot as pl
 
 FILE = sys.argv[0]
+print(FILE)
 
 #
 # Two functions to scale and unscale vectors, to and from [0, 1]
