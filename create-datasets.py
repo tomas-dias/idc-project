@@ -1,7 +1,7 @@
 import pandas as pd
 import numpy as np
 
-FILE = 'result.json'
+FILE = '/home/tomasalexdias_gmail_com/idc-project/result.json'
 
 #
 # Two functions to scale and unscale vectors, to and from [0, 1]
