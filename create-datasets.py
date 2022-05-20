@@ -97,8 +97,8 @@ TrainSetD = DataSetD[: round(Nd * 0.7), :]
 TestSetD = DataSetD[round(Nd * 0.7) :, :]
 
 # Writing files
-pd.DataFrame(TrainSetC).to_csv('/home/tomasalexdias_gmail_com/idc-project/datasets/charge/train.csv', header=None, index=None)
-pd.DataFrame(TestSetC).to_csv('/home/tomasalexdias_gmail_com/idc-project/datasets/charge/test.csv', header=None, index=None)
+pd.DataFrame(TrainSetC).to_csv('/home/tomasalexdias_gmail_com/idc-project/datasets/charge/train.csv', header=None)
+pd.DataFrame(TestSetC).to_csv('/home/tomasalexdias_gmail_com/idc-project/datasets/charge/test.csv', header=None)
 
-pd.DataFrame(TrainSetD).to_csv('/home/tomasalexdias_gmail_com/idc-project/datasets/discharge/train.csv', header=None, index=None)
-pd.DataFrame(TestSetD).to_csv('/home/tomasalexdias_gmail_com/idc-project/datasets/discharge/test.csv', header=None, index=None)
+pd.DataFrame(TrainSetD).to_csv('/home/tomasalexdias_gmail_com/idc-project/datasets/discharge/train.csv', header=None)
+pd.DataFrame(TestSetD).to_csv('/home/tomasalexdias_gmail_com/idc-project/datasets/discharge/test.csv', header=None)
