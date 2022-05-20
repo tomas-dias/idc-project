@@ -30,7 +30,7 @@ def main():
         #CycleTime = offline_data["time"]
         #CycleFinalTime = offline_data["elapsed_time"]
 
-        DataSetC = np.empty((0, 7))
+        DataSetC = np.empty((0, 5))
 
         # Check your data for potential problems (like outliers).
         # Should we leave any cycles out of the data sets?
@@ -53,6 +53,6 @@ def main():
         result.append({"x": offline_data['timestamp'], "y": YhatC})
     
     return result
-    
+
 if __name__ == "__main__": 
     main()
