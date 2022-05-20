@@ -7,7 +7,6 @@ import os
 import signal
 import getopt
 from datetime import datetime
-import random
 
 
 FILE_D1 = 'online_1.json'
@@ -50,14 +49,13 @@ def main(argv):
                 content.update({"battery_ID": doc["battery_ID"]})
                 content.update({"cycle_number": int(key[-3:])})
                 content.update({"type": doc["type"]})
-                content.update({"date_time": doc["date_time"]})
                 content.update({"voltage_battery": doc["voltage_battery"][x]})
                 content.update({"current_battery": doc["current_battery"][x]})
                 content.update({"temp_battery": doc["temp_battery"][x]})
                 content.update({"current_load": doc["current_load"][x]})
                 content.update({"voltage_load": doc["voltage_load"][x]})
                 content.update({"timestamp": datetime.timestamp(datetime.now())})
-                mqttc.publish(topic, content)
+                mqttc.publish(topic, json.dumps(content))
                 msgs_sent += 1
                 time.sleep(5)
                 
@@ -79,7 +77,7 @@ def main(argv):
                 content.update({"current_load": doc["current_load"][x]})
                 content.update({"voltage_load": doc["voltage_load"][x]})
                 content.update({"timestamp": datetime.timestamp(datetime.now())})
-                mqttc.publish(topic, content)
+                mqttc.publish(topic, json.dumps(content))
                 msgs_sent += 1
                 time.sleep(5)
 
