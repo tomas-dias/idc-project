@@ -1,5 +1,6 @@
 import pandas as pd
 import numpy as np
+from joblib import dump, load
 
 FILE = '/home/tomasalexdias_gmail_com/idc-project/result.json'
 
@@ -96,9 +97,42 @@ TestSetC = DataSetC[round(Nc * 0.7) :, :]
 TrainSetD = DataSetD[: round(Nd * 0.7), :]
 TestSetD = DataSetD[round(Nd * 0.7) :, :]
 
-# Writing files
-pd.DataFrame(TrainSetC).to_csv('/home/tomasalexdias_gmail_com/idc-project/datasets/charge/train.csv', header=None, index=None)
-pd.DataFrame(TestSetC).to_csv('/home/tomasalexdias_gmail_com/idc-project/datasets/charge/test.csv', header=None, index=None)
+# Train model for charging cycle.
+# How many neurons in the first hidden layer?
+# How many neurons in the second hidden layer?
+# Choose appropriate values for max_iter and tol
+# All these parameters and design variable affect the final result.
+# Find good compromise
 
-pd.DataFrame(TrainSetD).to_csv('/home/tomasalexdias_gmail_com/idc-project/datasets/discharge/train.csv', header=None, index=None)
-pd.DataFrame(TestSetD).to_csv('/home/tomasalexdias_gmail_com/idc-project/datasets/discharge/test.csv', header=None, index=None)
+HiddenLayer1 = 7
+HiddenLayer2 = 3
+modelC = MLPRegressor((HiddenLayer1, HiddenLayer2,), verbose = True, max_iter = 200, tol = 0.0001)
+modelC.fit(TrainSetC[:, : 6], TrainSetC[:, 6])
+
+YhatC = modelC.predict(TestSetC[:, :6])
+
+# Train model for discharging cycle.
+# How many neurons in the first hidden layer?
+# How many neurons in the second hidden layer?
+# Choose appropriate values for max_iter and tol
+# All these parameters and design variable affect the final result.
+# Find good compromise
+
+HiddenLayer1 = 7
+HiddenLayer2 = 3
+modelD = MLPRegressor((HiddenLayer1, HiddenLayer2,), verbose = True, max_iter = 200, tol = 0.0001)
+modelD.fit(TrainSetD[:, : 6], TrainSetD[:, 6])
+
+YhatD = modelD.predict(TestSetD[:, :6])
+
+
+# Numerical validation
+# Check also standard deviation
+
+print("Average charge test abs error:",unscale(abs(TestSetC[:,6] - YhatC).mean(), VMin, VMax))
+print("Average discharge test abs error:",unscale(abs(TestSetD[:,6] - YhatD).mean(), VMin, VMax))
+
+# Save Models
+
+dump(modelC, '/home/tomasalexdias_gmail_com/idc-project/charge-predictor.joblib')
+dump(modelD, '/home/tomasalexdias_gmail_com/idc-project/discharge-predictor.joblib')
