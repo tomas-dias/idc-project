@@ -50,9 +50,10 @@ def main():
 
         YhatC = ModelC.predict(DataSetC)
 
+
         result.append({"x": offline_data['timestamp'], "y": YhatC})
     
-    print(result)
+    print(result[0]["y"])
 
 if __name__ == "__main__": 
     main()
