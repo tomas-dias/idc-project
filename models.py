@@ -38,8 +38,8 @@ CycleFinalTime = offline_data["elapsed_time"]
 # All the cycles will be stored.
 # These will be matrices with variables in columns and one data point per row.
 
-DataSetC = np.empty((0, 7))
-DataSetD =  np.empty((0, 7))
+DataSetC = np.empty((0, 6))
+DataSetD =  np.empty((0, 6))
 
 for i in CycleNumber:
 
@@ -59,9 +59,9 @@ for i in CycleNumber:
     Tleft = CycleFinalTime[i] - t
 
     if CType == 'charge':
-        DataSetC = np.vstack((DataSetC, np.block([t, Vb, Ib, Tb, LIb, LVb, Tleft])))
+        DataSetC = np.vstack((DataSetC, np.block([Vb, Ib, Tb, LIb, LVb, Tleft])))
     else:
-        DataSetD = np.vstack((DataSetD, np.block([t, Vb, Ib, Tb, LIb, LVb, Tleft])))
+        DataSetD = np.vstack((DataSetD, np.block([Vb, Ib, Tb, LIb, LVb, Tleft])))
 
 # The two variables have the target output in the last column.
 # Should we use all other variables as inputs to the model?
@@ -108,9 +108,9 @@ TestSetD = DataSetD[round(Nd * 0.7) :, :]
 HiddenLayer1 = 7
 HiddenLayer2 = 3
 modelC = MLPRegressor((HiddenLayer1, HiddenLayer2,), verbose = True, max_iter = 200, tol = 0.0001)
-modelC.fit(TrainSetC[:, : 6], TrainSetC[:, 6])
+modelC.fit(TrainSetC[:, : 5], TrainSetC[:, 5])
 
-YhatC = modelC.predict(TestSetC[:, :6])
+YhatC = modelC.predict(TestSetC[:, :5])
 
 # Train model for discharging cycle.
 # How many neurons in the first hidden layer?
@@ -122,16 +122,16 @@ YhatC = modelC.predict(TestSetC[:, :6])
 HiddenLayer1 = 7
 HiddenLayer2 = 3
 modelD = MLPRegressor((HiddenLayer1, HiddenLayer2,), verbose = True, max_iter = 200, tol = 0.0001)
-modelD.fit(TrainSetD[:, : 6], TrainSetD[:, 6])
+modelD.fit(TrainSetD[:, : 5], TrainSetD[:, 5])
 
-YhatD = modelD.predict(TestSetD[:, :6])
+YhatD = modelD.predict(TestSetD[:, :5])
 
 
 # Numerical validation
 # Check also standard deviation
 
-print("Average charge test abs error:",unscale(abs(TestSetC[:,6] - YhatC).mean(), VMin, VMax))
-print("Average discharge test abs error:",unscale(abs(TestSetD[:,6] - YhatD).mean(), VMin, VMax))
+print("Average charge test abs error:",unscale(abs(TestSetC[:,5] - YhatC).mean(), VMin, VMax))
+print("Average discharge test abs error:",unscale(abs(TestSetD[:,5] - YhatD).mean(), VMin, VMax))
 
 # Save Models
 
