@@ -2,27 +2,45 @@ import pandas as pd
 import numpy as np
 from joblib import dump, load
 
-FILE = '/home/tomasalexdias_gmail_com/idc-project/result.json'
+FILE = '/home/tomasalexdias_gmail_com/idc-project/predict.json'
 
-#
-# Extract relevant variables from JSON file 
-#
+def main():
+    
+    #
+    # Extract relevant variables from JSON file 
+    #
 
-offline_data = pd.read_json(FILE)
+    offline_data = pd.read_json(FILE)
 
-CycleNumber = offline_data["cycle_number"]
+    BVoltage = offline_data["voltage_battery"]
+    BCurrent = offline_data["current_battery"]
+    BTemperature = offline_data["temp_battery"]
+    BCurrentLoad = offline_data["current_load"]
+    BVoltageLoad = offline_data["voltage_load"]
+    #CycleTime = offline_data["time"]
+    #CycleFinalTime = offline_data["elapsed_time"]
 
-CycleType = offline_data["type"]
+    DataSetC = np.empty((0, 7))
 
-BVoltage = offline_data["voltage_battery"]
-BCurrent = offline_data["current_battery"]
-BTemperature = offline_data["temp_battery"]
-BCurrentLoad = offline_data["current_load"]
-BVoltageLoad = offline_data["voltage_load"]
-CycleTime = offline_data["time"]
-CycleFinalTime = offline_data["elapsed_time"]
+    # Check your data for potential problems (like outliers).
+    # Should we leave any cycles out of the data sets?
+    # plots can help.
 
-DataSetC = np.empty((0, 7))
+    N = len(BVoltage)
 
-ModelC = load('charge-predictor.joblib')
+    Vb = np.array(BVoltage).reshape(N,1)
+    Ib = np.array(BCurrent).reshape(N,1)
+    Tb = np.array(BTemperature).reshape(N,1)
+    LIb = np.array(BCurrentLoad).reshape(N,1)
+    LVb = np.array(BVoltageLoad).reshape(N,1)
 
+    DataSetC = np.vstack((DataSetC, np.block([Vb, Ib, Tb, LIb, LVb])))
+
+    ModelC = load('charge-predictor.joblib')
+
+    YhatC = ModelC.predict(DataSetC)
+
+    return YhatC
+
+if __name__ == "__main__": 
+    main()
