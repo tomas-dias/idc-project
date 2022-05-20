@@ -53,8 +53,8 @@ def main():
 
         result.append({"x": offline_data['timestamp'], "y": YhatC})
     
-    print("YhatC length: " + len(YhatC))
-    print("Result length: " + len(result[0]["y"]))
+    print("YhatC length: " + str(len(YhatC)))
+    print("Result length: " + str(len(result[0]["y"])))
 
 if __name__ == "__main__": 
     main()
