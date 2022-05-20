@@ -58,11 +58,13 @@ def main(argv):
                 mqttc.publish(topic, json.dumps(content))
                 msgs_sent += 1
                 time.sleep(5)
-                
+                break
+            break
         except KeyboardInterrupt:
             sys.exit()
     
     for key in keys_2:
+        break
         try:
             doc = dataset_2[key]
             l = len(doc["voltage_battery"])
