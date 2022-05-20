@@ -1,6 +1,7 @@
 import pandas as pd
 import numpy as np
 from joblib import dump, load
+from sklearn.neural_network import MLPRegressor
 
 FILE = '/home/tomasalexdias_gmail_com/idc-project/result.json'
 
