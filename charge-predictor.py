@@ -21,7 +21,7 @@ def main():
         #
 
         # offline_data = pd.read_json(FILE)
-        print("Cycle Number: " + offline_data["cycle_number"])
+        print("Cycle Number: " + str(offline_data["cycle_number"]))
         BVoltage = offline_data["voltage_battery"]
         BCurrent = offline_data["current_battery"]
         BTemperature = offline_data["temp_battery"]
