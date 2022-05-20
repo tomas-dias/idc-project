@@ -17,17 +17,6 @@ def build_dataset(file):
     f = open(file)
     return json.load(f)
 
-# def build_time():
-#     num_battery_measurements = 3492
-#     time = []
-#     i = 0.0
-
-#     for _ in range(num_battery_measurements):
-#         time.append(i)
-#         i += random.uniform(6.0, 20.0)
-    
-#     return time
-
 def signal_handler(sig, frame):
     #print('You pressed Ctrl+C.\nProgram closed.')
     sys.exit(0)
@@ -55,28 +44,48 @@ def main(argv):
     for key in keys:
         try:
             doc = dataset[key]
-            doc["cycle_number"] = int(key[-3:])
-            #doc["time"] = build_time()
-            doc["timestamp"] = datetime.timestamp(datetime.now())
-            payload = json.dumps(doc)
-            #print("Sending msg: " + payload)
-            mqttc.publish(topic, payload)
-            msgs_sent += 1
-            time.sleep(5)
+            l = len(doc["voltage_battery"])
+            for x in range(l):
+                content = {}
+                content.update({"battery_ID": doc["battery_ID"]})
+                content.update({"cycle_number": int(key[-3:])})
+                content.update({"type": doc["type"]})
+                content.update({"amb_temp": doc["amb_temp"]})
+                content.update({"date_time": doc["date_time"]})
+                content.update({"voltage_battery": doc["voltage_battery"][x]})
+                content.update({"current_battery": doc["current_battery"][x]})
+                content.update({"temp_battery": doc["temp_battery"][x]})
+                content.update({"current_load": doc["current_load"][x]})
+                content.update({"voltage_load": doc["voltage_load"][x]})
+                content.update({"timestamp": datetime.timestamp(datetime.now())})
+                mqttc.publish(topic, content)
+                msgs_sent += 1
+                time.sleep(5)
+                
         except KeyboardInterrupt:
             sys.exit()
     
     for key in keys_2:
         try:
             doc = dataset_2[key]
-            doc["cycle_number"] = int(key[-3:])
-            #doc["time"] = build_time()
-            doc["timestamp"] = datetime.timestamp(datetime.now())
-            payload = json.dumps(doc)
-            #print("Sending msg: " + payload)
-            mqttc.publish(topic, payload)
-            msgs_sent += 1
-            time.sleep(5)
+            l = len(doc["voltage_battery"])
+            for x in range(l):
+                content = {}
+                content.update({"battery_ID": doc["battery_ID"]})
+                content.update({"cycle_number": int(key[-3:])})
+                content.update({"type": doc["type"]})
+                content.update({"amb_temp": doc["amb_temp"]})
+                content.update({"date_time": doc["date_time"]})
+                content.update({"voltage_battery": doc["voltage_battery"][x]})
+                content.update({"current_battery": doc["current_battery"][x]})
+                content.update({"temp_battery": doc["temp_battery"][x]})
+                content.update({"current_load": doc["current_load"][x]})
+                content.update({"voltage_load": doc["voltage_load"][x]})
+                content.update({"timestamp": datetime.timestamp(datetime.now())})
+                mqttc.publish(topic, content)
+                msgs_sent += 1
+                time.sleep(5)
+
         except KeyboardInterrupt:
             sys.exit()
     mqttc.loop_stop()
