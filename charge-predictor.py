@@ -1,4 +1,4 @@
-import collections
+import json
 import pandas as pd
 import numpy as np
 from joblib import dump, load
@@ -52,7 +52,7 @@ def main():
 
         result.append({"x": offline_data['timestamp'], "y": YhatC})
     
-    return result
+    print(result)
 
 if __name__ == "__main__": 
     main()
