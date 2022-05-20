@@ -20,9 +20,8 @@ def main():
         # Extract relevant variables from JSON file 
         #
 
-        print("Type" + offline_data["type"])
         # offline_data = pd.read_json(FILE)
-        CycleType = offline_data["type"]
+        print("Cycle Number: " + offline_data["cycle_number"])
         BVoltage = offline_data["voltage_battery"]
         BCurrent = offline_data["current_battery"]
         BTemperature = offline_data["temp_battery"]
@@ -53,9 +52,9 @@ def main():
 
 
         result.append({"x": offline_data['timestamp'], "y": YhatC})
+        break
     
     print("YhatC length: " + str(len(YhatC)))
-    print("Result length: " + str(len(result[0]["y"])))
 
 if __name__ == "__main__": 
     main()
