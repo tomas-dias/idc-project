@@ -46,7 +46,7 @@ def main():
 
         DataSetC = np.vstack((DataSetC, np.block([Vb, Ib, Tb, LIb, LVb])))
 
-        ModelC = load('charge-predictor.joblib')
+        ModelC = load('/home/tomasalexdias_gmail_com/idc-project/charge-predictor.joblib')
 
         YhatC = ModelC.predict(DataSetC)
 
