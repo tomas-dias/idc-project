@@ -20,6 +20,7 @@ def main():
         # Extract relevant variables from JSON file 
         #
 
+        print("Type" + offline_data["type"])
         # offline_data = pd.read_json(FILE)
         CycleType = offline_data["type"]
         BVoltage = offline_data["voltage_battery"]
