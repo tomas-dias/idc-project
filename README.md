@@ -6,7 +6,7 @@
 sh install-mongo.sh
 ```
 
-### Run the following script to populate the database with sample dataset (*sample.json*)
+### Run the following script to populate the database
 
 ```
 sh setup-db.sh
