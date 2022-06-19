@@ -1,0 +1,87 @@
+"""a simple sensor data generator that sends to an MQTT broker via paho"""
+import sys
+import json
+import time
+import paho.mqtt.client as mqtt
+import signal
+from datetime import datetime
+
+
+FILE_D1 = 'datasets/online_1.json'
+FILE_D2 = 'datasets/online_2.json'
+
+def build_dataset(file):
+    f = open(file)
+    return json.load(f)
+
+def signal_handler(sig, frame):
+    sys.exit(0)
+
+def main(argv):
+
+    signal.signal(signal.SIGINT, signal_handler)
+    
+    broker = "34.163.176.8" 
+    port = 1883
+    topic = "battery_1"
+
+    dataset = build_dataset(FILE_D1)
+    dataset_2 = build_dataset(FILE_D2)
+
+    keys = ["cycle_1_609", "cycle_1_611", "cycle_1_612", "cycle_1_613"]
+    keys_2 = ["cycle_2_607", "cycle_2_609", "cycle_2_611", "cycle_2_612", "cycle_2_613"]
+
+    mqttc = mqtt.Client("Publisher")
+    mqttc.connect(broker, port)
+    msgs_sent = 0
+    mqttc.loop_start()
+
+    for key in keys:
+        try:
+            doc = dataset[key]
+            l = len(doc["voltage_battery"])
+            if(doc["type"] == "charge"):
+                for x in range(l):
+                    content = {}
+                    content.update({"battery_ID": doc["battery_ID"]})
+                    content.update({"cycle_number": int(key[-3:])})
+                    content.update({"type": doc["type"]})
+                    content.update({"voltage_battery": doc["voltage_battery"][x]})
+                    content.update({"current_battery": doc["current_battery"][x]})
+                    content.update({"temp_battery": doc["temp_battery"][x]})
+                    content.update({"current_load": doc["current_load"][x]})
+                    content.update({"voltage_load": doc["voltage_load"][x]})
+                    content.update({"timestamp": datetime.timestamp(datetime.now())})
+                    mqttc.publish(topic, json.dumps(content))
+                    msgs_sent += 1
+                    time.sleep(5)
+        except KeyboardInterrupt:
+            sys.exit()
+    
+    for key in keys_2:
+        try:
+            doc = dataset_2[key]
+            l = len(doc["voltage_battery"])
+            if(doc["discharge"] == "discharge"):
+                for x in range(l):
+                    content = {}
+                    content.update({"battery_ID": doc["battery_ID"]})
+                    content.update({"cycle_number": int(key[-3:])})
+                    content.update({"type": doc["type"]})
+                    content.update({"voltage_battery": doc["voltage_battery"][x]})
+                    content.update({"current_battery": doc["current_battery"][x]})
+                    content.update({"temp_battery": doc["temp_battery"][x]})
+                    content.update({"current_load": doc["current_load"][x]})
+                    content.update({"voltage_load": doc["voltage_load"][x]})
+                    content.update({"timestamp": datetime.timestamp(datetime.now())})
+                    mqttc.publish(topic, json.dumps(content))
+                    msgs_sent += 1
+                    time.sleep(5)
+        except KeyboardInterrupt:
+            sys.exit()
+    mqttc.loop_stop()
+
+    print("Messages sent: " + str(msgs_sent))
+
+if __name__ == "__main__": 
+    main(sys.argv[1:])

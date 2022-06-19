@@ -1,0 +1,1725 @@
+[
+    {
+        "id": "992a7ae2937c93a4",
+        "type": "tab",
+        "label": "Stage 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "cad35b2f8e62d8a6",
+        "type": "tab",
+        "label": "Flow 2",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "36496b8322aa3304",
+        "type": "subflow",
+        "name": "Subflow 1",
+        "info": "",
+        "in": [],
+        "out": []
+    },
+    {
+        "id": "353d3250ff569ae0",
+        "type": "subflow",
+        "name": "Subflow 2",
+        "info": "",
+        "in": [],
+        "out": []
+    },
+    {
+        "id": "1a69b071115a2751",
+        "type": "mongodb",
+        "hostname": "127.0.0.1",
+        "topology": "direct",
+        "connectOptions": "",
+        "port": "27017",
+        "db": "battery-cycles",
+        "name": ""
+    },
+    {
+        "id": "0be2fe25db1d5c6f",
+        "type": "ui_tab",
+        "name": "Home",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "313bbf57496b2d3e",
+        "type": "ui_base",
+        "theme": {
+            "name": "theme-light",
+            "lightTheme": {
+                "default": "#0094CE",
+                "baseColor": "#0094CE",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "darkTheme": {
+                "default": "#097479",
+                "baseColor": "#097479",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": false
+            },
+            "customTheme": {
+                "name": "Untitled Theme 1",
+                "default": "#4B7930",
+                "baseColor": "#4B7930",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+            },
+            "themeState": {
+                "base-color": {
+                    "default": "#0094CE",
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-titlebar-backgroundColor": {
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-backgroundColor": {
+                    "value": "#fafafa",
+                    "edited": false
+                },
+                "page-sidebar-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-textColor": {
+                    "value": "#1bbfff",
+                    "edited": false
+                },
+                "group-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "widget-textColor": {
+                    "value": "#111111",
+                    "edited": false
+                },
+                "widget-backgroundColor": {
+                    "value": "#0094ce",
+                    "edited": false
+                },
+                "widget-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "base-font": {
+                    "value": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+                }
+            },
+            "angularTheme": {
+                "primary": "indigo",
+                "accents": "blue",
+                "warn": "red",
+                "background": "grey",
+                "palette": "light"
+            }
+        },
+        "site": {
+            "name": "Node-RED Dashboard",
+            "hideToolbar": "false",
+            "allowSwipe": "false",
+            "lockMenu": "false",
+            "allowTempTheme": "true",
+            "dateFormat": "DD/MM/YYYY",
+            "sizes": {
+                "sx": 48,
+                "sy": 48,
+                "gx": 6,
+                "gy": 6,
+                "cx": 6,
+                "cy": 6,
+                "px": 0,
+                "py": 0
+            }
+        }
+    },
+    {
+        "id": "12eee8032e54553f",
+        "type": "ui_group",
+        "name": "Battery Cycles Data",
+        "tab": "0be2fe25db1d5c6f",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "1fcb8a5c33115775",
+        "type": "mqtt-broker",
+        "name": "broker",
+        "broker": "34.163.176.8",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "sessionExpiry": ""
+    },
+    {
+        "id": "89749fb7.87f01",
+        "type": "ui_group",
+        "name": "Charts",
+        "tab": "d7901f40.2659d",
+        "order": 2,
+        "disp": false,
+        "width": "6"
+    },
+    {
+        "id": "ab397e95.29ebe",
+        "type": "ui_group",
+        "name": "Inputs",
+        "tab": "d7901f40.2659d",
+        "order": 1,
+        "disp": false,
+        "width": "6"
+    },
+    {
+        "id": "4e7edda4.417004",
+        "type": "ui_group",
+        "name": "Group 3",
+        "tab": "d7901f40.2659d",
+        "order": 3,
+        "disp": false,
+        "width": "6"
+    },
+    {
+        "id": "d7901f40.2659d",
+        "type": "ui_tab",
+        "name": "Charts",
+        "icon": "dashboard",
+        "order": 2
+    },
+    {
+        "id": "4a47f6b98ebbb1f9",
+        "type": "mongodb in",
+        "z": "992a7ae2937c93a4",
+        "mongodb": "1a69b071115a2751",
+        "name": "Retrieve Data - Battery Info",
+        "collection": "offline",
+        "operation": "aggregate",
+        "x": 940,
+        "y": 300,
+        "wires": [
+            [
+                "93e5ce5477721c24",
+                "b5805cb72097866c",
+                "1914020cd7902917",
+                "ddaf35769379fb1b",
+                "16574219e5d8e5d2",
+                "30e7dc99c9c31a50",
+                "41a37a7028843192",
+                "9d21315a6dd71aac",
+                "c307dfd510cc6b6d",
+                "01a1dae2d792f903",
+                "3c564c4748bd4e2b",
+                "9a9f2c89d598698b",
+                "8a47f429f29185b9",
+                "d7dbc4082dd25057"
+            ]
+        ]
+    },
+    {
+        "id": "45217cde565345be",
+        "type": "function",
+        "z": "992a7ae2937c93a4",
+        "name": "Build Querys - Battery Info",
+        "func": "msg.payload = [\n    {\n        $facet: {\n            query1: [\n                { \"$match\" : {\"battery_ID\" : flow.get(\"battery_ID\")}},\n                { \"$group\": {\n                \"_id\": {\n                    \"type\" : \"$type\"\n                },\n                \"counter\" : { \"$sum\" : 1},\n                \"avgTime\": {\"$avg\": \"$elapsed_time\"},\n                \"standardDeviation\": {\"$stdDevSamp\": \"$elapsed_time\"}\n                }}\n            ],\n            query2: [ \n                {\"$unwind\" : \"$temp_battery\"},\n                { \"$match\" : {\"battery_ID\" : flow.get(\"battery_ID\")}},\n                { \"$group\": {\n                    \"_id\": {\n                        \"type\" : \"$type\"\n                    },\n                    \"minTempBattery\" : {\"$min\" : \"$temp_battery\"},\n                    \"maxTempBattery\" : {\"$max\" : \"$temp_battery\"},\n                    \"avgTempBattery\" : {\"$avg\" : \"$temp_battery\"},\n                    \"standardDeviation\" : {\"$stdDevSamp\": \"$temp_battery\"}\n                }}\n             ]\n        }\n    }\n]\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 680,
+        "y": 300,
+        "wires": [
+            [
+                "4a47f6b98ebbb1f9"
+            ]
+        ]
+    },
+    {
+        "id": "ec9c4eb243bb96c2",
+        "type": "http in",
+        "z": "992a7ae2937c93a4",
+        "name": "",
+        "url": "/battery/:id",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 160,
+        "y": 660,
+        "wires": [
+            [
+                "e6aa8ae03bf9bc2b"
+            ]
+        ]
+    },
+    {
+        "id": "e6aa8ae03bf9bc2b",
+        "type": "change",
+        "z": "992a7ae2937c93a4",
+        "name": "HTTP - Params & Query",
+        "rules": [
+            {
+                "t": "set",
+                "p": "battery_ID",
+                "pt": "flow",
+                "to": "req.params[\"id\"]",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "cycle_1",
+                "pt": "flow",
+                "to": "req.query[\"c1\"]",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "cycle_2",
+                "pt": "flow",
+                "to": "req.query[\"c2\"]",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "initial_timestamp",
+                "pt": "flow",
+                "to": "req.query[\"t1\"]",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "final_timestamp",
+                "pt": "flow",
+                "to": "req.query[\"t2\"]",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 370,
+        "y": 660,
+        "wires": [
+            [
+                "4605dd13672cb074",
+                "8c29ee8630b7db8f",
+                "cf2f651147b47ba7",
+                "45217cde565345be",
+                "d34621982d0ef06b"
+            ]
+        ]
+    },
+    {
+        "id": "b5805cb72097866c",
+        "type": "change",
+        "z": "992a7ae2937c93a4",
+        "name": "Save Data - # Discharges",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload[0][\"query1\"][1][\"counter\"]",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1350,
+        "y": 120,
+        "wires": [
+            [
+                "a01744bc771d2e54"
+            ]
+        ]
+    },
+    {
+        "id": "1914020cd7902917",
+        "type": "change",
+        "z": "992a7ae2937c93a4",
+        "name": "Save Data - Charge Avg Time",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload[0][\"query1\"][0][\"avgTime\"]",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1370,
+        "y": 160,
+        "wires": [
+            [
+                "5a90dffce9676ab5"
+            ]
+        ]
+    },
+    {
+        "id": "ddaf35769379fb1b",
+        "type": "change",
+        "z": "992a7ae2937c93a4",
+        "name": "Save Data - Discharge Avg Time",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload[0][\"query1\"][1][\"avgTime\"]",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1370,
+        "y": 200,
+        "wires": [
+            [
+                "325408e8f47fdce5"
+            ]
+        ]
+    },
+    {
+        "id": "16574219e5d8e5d2",
+        "type": "change",
+        "z": "992a7ae2937c93a4",
+        "name": "Save Data - Charge Std Dev",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload[0][\"query1\"][0][\"standardDeviation\"]",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1360,
+        "y": 240,
+        "wires": [
+            [
+                "b224bb865f34f772"
+            ]
+        ]
+    },
+    {
+        "id": "93e5ce5477721c24",
+        "type": "change",
+        "z": "992a7ae2937c93a4",
+        "name": "Save Data - # Charges",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload[0][\"query1\"][0][\"counter\"]",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1340,
+        "y": 80,
+        "wires": [
+            [
+                "152a90b998ba9d83"
+            ]
+        ]
+    },
+    {
+        "id": "152a90b998ba9d83",
+        "type": "ui_text",
+        "z": "992a7ae2937c93a4",
+        "group": "12eee8032e54553f",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "# Charges:",
+        "format": "{{msg.payload}}",
+        "layout": "row-center",
+        "className": "",
+        "x": 1530,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "a01744bc771d2e54",
+        "type": "ui_text",
+        "z": "992a7ae2937c93a4",
+        "group": "12eee8032e54553f",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "# Discharges:",
+        "format": "{{msg.payload}}",
+        "layout": "row-center",
+        "className": "",
+        "x": 1560,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "5a90dffce9676ab5",
+        "type": "ui_text",
+        "z": "992a7ae2937c93a4",
+        "group": "12eee8032e54553f",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Charge Avg Time:",
+        "format": "{{msg.payload}}",
+        "layout": "row-center",
+        "className": "",
+        "x": 1610,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "325408e8f47fdce5",
+        "type": "ui_text",
+        "z": "992a7ae2937c93a4",
+        "group": "12eee8032e54553f",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Discharge Avg Time:",
+        "format": "{{msg.payload}}",
+        "layout": "row-center",
+        "className": "",
+        "x": 1620,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "30e7dc99c9c31a50",
+        "type": "change",
+        "z": "992a7ae2937c93a4",
+        "name": "Save Data - Discharge Std Dev",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload[0][\"query1\"][1][\"standardDeviation\"]",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1370,
+        "y": 280,
+        "wires": [
+            [
+                "888374f4bf18feb1"
+            ]
+        ]
+    },
+    {
+        "id": "888374f4bf18feb1",
+        "type": "ui_text",
+        "z": "992a7ae2937c93a4",
+        "group": "12eee8032e54553f",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Discharge Std Dev:",
+        "format": "{{msg.payload}}",
+        "layout": "row-center",
+        "className": "",
+        "x": 1610,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "b224bb865f34f772",
+        "type": "ui_text",
+        "z": "992a7ae2937c93a4",
+        "group": "12eee8032e54553f",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Charge Std Dev",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "x": 1580,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "41a37a7028843192",
+        "type": "change",
+        "z": "992a7ae2937c93a4",
+        "name": "Save Data - Charge Min Temp Battery",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload[0][\"query2\"][0][\"minTempBattery\"]",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1390,
+        "y": 320,
+        "wires": [
+            [
+                "41b7a826c048c6d1"
+            ]
+        ]
+    },
+    {
+        "id": "9d21315a6dd71aac",
+        "type": "change",
+        "z": "992a7ae2937c93a4",
+        "name": "Save Data - Discharge Min Temp Battery",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload[0][\"query2\"][1][\"minTempBattery\"]",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1400,
+        "y": 360,
+        "wires": [
+            [
+                "de04594d4c2243b2"
+            ]
+        ]
+    },
+    {
+        "id": "c307dfd510cc6b6d",
+        "type": "change",
+        "z": "992a7ae2937c93a4",
+        "name": "Save Data - Charge Max Temp Battery",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload[0][\"query2\"][0][\"maxTempBattery\"]",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1390,
+        "y": 400,
+        "wires": [
+            [
+                "fbb316dc67e1cb63"
+            ]
+        ]
+    },
+    {
+        "id": "01a1dae2d792f903",
+        "type": "change",
+        "z": "992a7ae2937c93a4",
+        "name": "Save Data - Discharge Max Temp Battery",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload[0][\"query2\"][1][\"maxTempBattery\"]",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1400,
+        "y": 440,
+        "wires": [
+            [
+                "a56fe2f12f7f05db"
+            ]
+        ]
+    },
+    {
+        "id": "9a9f2c89d598698b",
+        "type": "change",
+        "z": "992a7ae2937c93a4",
+        "name": "Save Data - Discharge  Avg Temp Battery",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload[0][\"query2\"][1][\"avgTempBattery\"]",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1400,
+        "y": 520,
+        "wires": [
+            [
+                "4dcf1d440a7bb718"
+            ]
+        ]
+    },
+    {
+        "id": "3c564c4748bd4e2b",
+        "type": "change",
+        "z": "992a7ae2937c93a4",
+        "name": "Save Data - Charge  Avg Temp Battery",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload[0][\"query2\"][0][\"avgTempBattery\"]",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1390,
+        "y": 480,
+        "wires": [
+            [
+                "1542fe1318350f51"
+            ]
+        ]
+    },
+    {
+        "id": "8a47f429f29185b9",
+        "type": "change",
+        "z": "992a7ae2937c93a4",
+        "name": "Save Data - Charge Std Dev Temp Battery",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload[0][\"query2\"][0][\"standardDeviation\"]",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1410,
+        "y": 560,
+        "wires": [
+            [
+                "9865088361bc3e76"
+            ]
+        ]
+    },
+    {
+        "id": "d7dbc4082dd25057",
+        "type": "change",
+        "z": "992a7ae2937c93a4",
+        "name": "Save Data - Discharge Std Dev Temp Battery",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload[0][\"query2\"][1][\"standardDeviation\"]",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1410,
+        "y": 600,
+        "wires": [
+            [
+                "a8a259ac38cc6f63"
+            ]
+        ]
+    },
+    {
+        "id": "41b7a826c048c6d1",
+        "type": "ui_text",
+        "z": "992a7ae2937c93a4",
+        "group": "12eee8032e54553f",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Charge Min Temp Battery:",
+        "format": "{{msg.payload}}",
+        "layout": "row-center",
+        "className": "",
+        "x": 1670,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "de04594d4c2243b2",
+        "type": "ui_text",
+        "z": "992a7ae2937c93a4",
+        "group": "12eee8032e54553f",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Discharge Min Temp Battery:",
+        "format": "{{msg.payload}}",
+        "layout": "row-center",
+        "className": "",
+        "x": 1700,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "fbb316dc67e1cb63",
+        "type": "ui_text",
+        "z": "992a7ae2937c93a4",
+        "group": "12eee8032e54553f",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Charge Max Temp Battery:",
+        "format": "{{msg.payload}}",
+        "layout": "row-center",
+        "className": "",
+        "x": 1680,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "a56fe2f12f7f05db",
+        "type": "ui_text",
+        "z": "992a7ae2937c93a4",
+        "group": "12eee8032e54553f",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Discharge Max Temp Battery:",
+        "format": "{{msg.payload}}",
+        "layout": "row-center",
+        "className": "",
+        "x": 1700,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "1542fe1318350f51",
+        "type": "ui_text",
+        "z": "992a7ae2937c93a4",
+        "group": "12eee8032e54553f",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Charge Avg Temp Battery:",
+        "format": "{{msg.payload}}",
+        "layout": "row-center",
+        "className": "",
+        "x": 1670,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "4dcf1d440a7bb718",
+        "type": "ui_text",
+        "z": "992a7ae2937c93a4",
+        "group": "12eee8032e54553f",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Discharge Avg Temp Battery:",
+        "format": "{{msg.payload}}",
+        "layout": "row-center",
+        "className": "",
+        "x": 1700,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "9865088361bc3e76",
+        "type": "ui_text",
+        "z": "992a7ae2937c93a4",
+        "group": "12eee8032e54553f",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Charge Std Dev Temp Battery:",
+        "format": "{{msg.payload}}",
+        "layout": "row-center",
+        "className": "",
+        "x": 1730,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "a8a259ac38cc6f63",
+        "type": "ui_text",
+        "z": "992a7ae2937c93a4",
+        "group": "12eee8032e54553f",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Discharge Std Dev Temp Battery:",
+        "format": "{{msg.payload}}",
+        "layout": "row-center",
+        "className": "",
+        "x": 1740,
+        "y": 600,
+        "wires": []
+    },
+    {
+        "id": "4d2cca0a64c458d5",
+        "type": "ui_text",
+        "z": "992a7ae2937c93a4",
+        "group": "12eee8032e54553f",
+        "order": 14,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Battery ID:",
+        "format": "{{msg.payload}}",
+        "layout": "row-center",
+        "className": "",
+        "x": 830,
+        "y": 600,
+        "wires": []
+    },
+    {
+        "id": "c4a66c51c2d3d912",
+        "type": "mongodb in",
+        "z": "992a7ae2937c93a4",
+        "mongodb": "1a69b071115a2751",
+        "name": "Retrieve Data - Cycle 1",
+        "collection": "offline",
+        "operation": "find",
+        "x": 890,
+        "y": 660,
+        "wires": [
+            [
+                "0f372782f01f0b13"
+            ]
+        ]
+    },
+    {
+        "id": "4605dd13672cb074",
+        "type": "function",
+        "z": "992a7ae2937c93a4",
+        "name": "Build Query - Cycle 1",
+        "func": "msg.payload = \n{\n    \"battery_ID\": flow.get(\"battery_ID\"), \n    \"cycle_number\": parseInt(flow.get(\"cycle_1\"))\n}\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 660,
+        "y": 660,
+        "wires": [
+            [
+                "c4a66c51c2d3d912"
+            ]
+        ]
+    },
+    {
+        "id": "eda3a1ae7ef17b15",
+        "type": "mongodb in",
+        "z": "992a7ae2937c93a4",
+        "mongodb": "1a69b071115a2751",
+        "name": "Retrieve Data - Cycle 2",
+        "collection": "offline",
+        "operation": "find",
+        "x": 890,
+        "y": 720,
+        "wires": [
+            [
+                "b0d0022756b8da39"
+            ]
+        ]
+    },
+    {
+        "id": "f5922a303092363a",
+        "type": "function",
+        "z": "992a7ae2937c93a4",
+        "name": "Build Chart",
+        "func": "msg.payload = \n[{\n    \"series\":[flow.get(\"cycle_1\"), flow.get(\"cycle_2\")],\n    \"data\": [flow.get(\"cycle_1_data\"), flow.get(\"cycle_2_data\")],\n    \"labels\":[\"\"]\n}];\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1890,
+        "y": 660,
+        "wires": [
+            [
+                "a093f189206a11fe",
+                "8da3a81a48886b57"
+            ]
+        ]
+    },
+    {
+        "id": "a093f189206a11fe",
+        "type": "ui_chart",
+        "z": "992a7ae2937c93a4",
+        "name": "",
+        "group": "89749fb7.87f01",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "label": "Cycle Comparison",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "s",
+        "interpolate": "linear",
+        "nodata": "No Data",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": "60",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "1",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 2070,
+        "y": 660,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "8c29ee8630b7db8f",
+        "type": "function",
+        "z": "992a7ae2937c93a4",
+        "name": "Build Query - Cycle 2",
+        "func": "msg.payload = \n{\n    \"battery_ID\": flow.get(\"battery_ID\"), \n    \"cycle_number\": parseInt(flow.get(\"cycle_2\"))\n}\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 660,
+        "y": 720,
+        "wires": [
+            [
+                "eda3a1ae7ef17b15"
+            ]
+        ]
+    },
+    {
+        "id": "0f372782f01f0b13",
+        "type": "change",
+        "z": "992a7ae2937c93a4",
+        "name": "Save Data - Cycle 1",
+        "rules": [
+            {
+                "t": "set",
+                "p": "cycle_1_data",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1120,
+        "y": 660,
+        "wires": [
+            [
+                "3fb09e9dc6e9ebb8"
+            ]
+        ]
+    },
+    {
+        "id": "b0d0022756b8da39",
+        "type": "change",
+        "z": "992a7ae2937c93a4",
+        "name": "Save Data - Cycle 2",
+        "rules": [
+            {
+                "t": "set",
+                "p": "cycle_2_data",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1120,
+        "y": 720,
+        "wires": [
+            [
+                "b1df17396a3bec31"
+            ]
+        ]
+    },
+    {
+        "id": "3fb09e9dc6e9ebb8",
+        "type": "function",
+        "z": "992a7ae2937c93a4",
+        "name": "Build Data - Cycle 1",
+        "func": "let data = flow.get(\"cycle_1_data\");\nlet obj = data[0];\n\nlet time = obj[\"time\"];\nlet battery = obj[\"current_battery\"];\n\nlet initial = parseFloat(flow.get(\"initial_timestamp\"));\nlet final = parseFloat(flow.get(\"final_timestamp\"));\n\nmsg.payload = [];\n\nfor (let i = 0; i < time.length; i++) {\n    if (time[i] >= initial && time[i] <= final) {\n        msg.payload.push({x: time[i], y: battery[i]});\n    }\n}\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1340,
+        "y": 660,
+        "wires": [
+            [
+                "fe52dd1154cdabb3"
+            ]
+        ]
+    },
+    {
+        "id": "b1df17396a3bec31",
+        "type": "function",
+        "z": "992a7ae2937c93a4",
+        "name": "Build Data - Cycle 2",
+        "func": "let data = flow.get(\"cycle_2_data\");\nlet obj = data[0];\n\nlet time = obj[\"time\"];\nlet battery = obj[\"current_battery\"];\n\nlet initial = parseFloat(flow.get(\"initial_timestamp\"));\nlet final = parseFloat(flow.get(\"final_timestamp\"));\n\nmsg.payload = [];\n\nfor (let i = 0; i < time.length; i++) {\n    if (time[i] >= initial && time[i] <= final) {\n        msg.payload.push({x: time[i], y: battery[i]});\n    }\n}\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1340,
+        "y": 720,
+        "wires": [
+            [
+                "f7abf22b18d8aa4a"
+            ]
+        ]
+    },
+    {
+        "id": "fe52dd1154cdabb3",
+        "type": "change",
+        "z": "992a7ae2937c93a4",
+        "name": "Save Data - Cycle 1",
+        "rules": [
+            {
+                "t": "set",
+                "p": "cycle_1_data",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1560,
+        "y": 660,
+        "wires": [
+            [
+                "ed1c1a27ab3da6a2"
+            ]
+        ]
+    },
+    {
+        "id": "f7abf22b18d8aa4a",
+        "type": "change",
+        "z": "992a7ae2937c93a4",
+        "name": "Save Data - Cycle 2",
+        "rules": [
+            {
+                "t": "set",
+                "p": "cycle_2_data",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1560,
+        "y": 720,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "ed1c1a27ab3da6a2",
+        "type": "delay",
+        "z": "992a7ae2937c93a4",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "1",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 1740,
+        "y": 660,
+        "wires": [
+            [
+                "f5922a303092363a"
+            ]
+        ]
+    },
+    {
+        "id": "e4f58e2745db0be3",
+        "type": "comment",
+        "z": "992a7ae2937c93a4",
+        "name": "Já Funciona!",
+        "info": "",
+        "x": 150,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "cf2f651147b47ba7",
+        "type": "function",
+        "z": "992a7ae2937c93a4",
+        "name": "",
+        "func": "msg.payload = {\"message\": \"Done!\"}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 620,
+        "y": 780,
+        "wires": [
+            [
+                "27562dc5f718ab7f"
+            ]
+        ]
+    },
+    {
+        "id": "27562dc5f718ab7f",
+        "type": "http response",
+        "z": "992a7ae2937c93a4",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 750,
+        "y": 780,
+        "wires": []
+    },
+    {
+        "id": "d34621982d0ef06b",
+        "type": "function",
+        "z": "992a7ae2937c93a4",
+        "name": "Retrieve Battery ID",
+        "func": "msg.payload = flow.get(\"battery_ID\");\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 650,
+        "y": 600,
+        "wires": [
+            [
+                "4d2cca0a64c458d5"
+            ]
+        ]
+    },
+    {
+        "id": "8da3a81a48886b57",
+        "type": "debug",
+        "z": "992a7ae2937c93a4",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 2050,
+        "y": 620,
+        "wires": []
+    },
+    {
+        "id": "5e1ac237061472b9",
+        "type": "mongodb in",
+        "z": "cad35b2f8e62d8a6",
+        "mongodb": "1a69b071115a2751",
+        "name": "Retrieve Data",
+        "collection": "offline",
+        "operation": "find",
+        "x": 240,
+        "y": 40,
+        "wires": [
+            [
+                "a0737e4899c1fd69"
+            ]
+        ]
+    },
+    {
+        "id": "a0737e4899c1fd69",
+        "type": "json",
+        "z": "cad35b2f8e62d8a6",
+        "name": "Convert Data",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 410,
+        "y": 40,
+        "wires": [
+            [
+                "dbf578a0e6d3345b"
+            ]
+        ]
+    },
+    {
+        "id": "dbf578a0e6d3345b",
+        "type": "file",
+        "z": "cad35b2f8e62d8a6",
+        "name": "Write Data",
+        "filename": "/home/tomasalexdias_gmail_com/idc-project/result.json",
+        "appendNewline": true,
+        "createDir": false,
+        "overwriteFile": "true",
+        "encoding": "none",
+        "x": 570,
+        "y": 40,
+        "wires": [
+            [
+                "2bdefeb36fdd7c65"
+            ]
+        ]
+    },
+    {
+        "id": "25eb0467612b99e8",
+        "type": "debug",
+        "z": "cad35b2f8e62d8a6",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 910,
+        "y": 20,
+        "wires": []
+    },
+    {
+        "id": "2bdefeb36fdd7c65",
+        "type": "exec",
+        "z": "cad35b2f8e62d8a6",
+        "command": "python3 /home/tomasalexdias_gmail_com/idc-project/models.py",
+        "addpay": "",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "Create Models",
+        "x": 740,
+        "y": 40,
+        "wires": [
+            [
+                "25eb0467612b99e8"
+            ],
+            [
+                "bc0e1a2cc822d51a"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "041462f4ab67a8a6",
+        "type": "inject",
+        "z": "cad35b2f8e62d8a6",
+        "name": "Start",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 90,
+        "y": 40,
+        "wires": [
+            [
+                "5e1ac237061472b9"
+            ]
+        ]
+    },
+    {
+        "id": "bc0e1a2cc822d51a",
+        "type": "debug",
+        "z": "cad35b2f8e62d8a6",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 910,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "1991b03bf9892b55",
+        "type": "mqtt in",
+        "z": "cad35b2f8e62d8a6",
+        "name": "",
+        "topic": "battery_1",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "1fcb8a5c33115775",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 100,
+        "y": 220,
+        "wires": [
+            [
+                "3b590343090dbeae"
+            ]
+        ]
+    },
+    {
+        "id": "3b590343090dbeae",
+        "type": "json",
+        "z": "cad35b2f8e62d8a6",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 230,
+        "y": 220,
+        "wires": [
+            [
+                "6c797456a5aa0011",
+                "7a5201921181c86c"
+            ]
+        ]
+    },
+    {
+        "id": "0c6e7bf17019e455",
+        "type": "file",
+        "z": "cad35b2f8e62d8a6",
+        "name": "Write New File",
+        "filename": "/home/tomasalexdias_gmail_com/idc-project/predict.json",
+        "appendNewline": true,
+        "createDir": false,
+        "overwriteFile": "true",
+        "encoding": "none",
+        "x": 1140,
+        "y": 220,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "c3f9fb2a637c85fa",
+        "type": "exec",
+        "z": "cad35b2f8e62d8a6",
+        "command": "python3 /home/tomasalexdias_gmail_com/idc-project/charge-predictor.py",
+        "addpay": "payload",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "Predictor",
+        "x": 520,
+        "y": 220,
+        "wires": [
+            [
+                "e0835790e6420e0d"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "6c797456a5aa0011",
+        "type": "function",
+        "z": "cad35b2f8e62d8a6",
+        "name": "",
+        "func": "msg.cycle_number = msg.payload[\"cycle_number\"]\nmsg.payload = \"\"  + msg.payload[\"type\"] + \",\"\n                  + msg.payload[\"voltage_battery\"] + \",\"\n                  + msg.payload[\"current_battery\"] + \",\"\n                  + msg.payload[\"temp_battery\"] + \",\"\n                  + msg.payload[\"current_load\"] + \",\"\n                  + msg.payload[\"voltage_load\"]\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 340,
+        "y": 320,
+        "wires": [
+            [
+                "3a365018340d87d7"
+            ]
+        ]
+    },
+    {
+        "id": "3a365018340d87d7",
+        "type": "function",
+        "z": "cad35b2f8e62d8a6",
+        "name": "",
+        "func": "if(flow.get(\"cn_current\") != null) {\n    flow.set(\"arr_current\", [])\n    if(msg.cycle_number != flow.get(\"cn_current\")) {\n        flow.set(\"cn_previous\", flow.get(\"cn_current\"))\n        flow.set(\"cn_current\", msg.cycle_number)\n        flow.set(\"arr_previous\", flow.get(\"arr_current\"))\n        flow.set(\"arr_current\", [])\n\n    }\n}\nelse {\n    flow.set(\"cn_current\", msg.cycle_number)\n    flow.set(\"arr_currrent\", [])\n    flow.set(\"arr_previous\", [])\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 520,
+        "y": 300,
+        "wires": [
+            [
+                "c3f9fb2a637c85fa"
+            ]
+        ]
+    },
+    {
+        "id": "7a5201921181c86c",
+        "type": "change",
+        "z": "cad35b2f8e62d8a6",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "timestamp",
+                "pt": "flow",
+                "to": "payload[\"timestamp\"]",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "current_battery",
+                "pt": "flow",
+                "to": "payload[\"current_battery\"]",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 380,
+        "y": 160,
+        "wires": [
+            [
+                "d3ca24846d283578"
+            ]
+        ]
+    },
+    {
+        "id": "e1a3e4b334ade4aa",
+        "type": "function",
+        "z": "cad35b2f8e62d8a6",
+        "name": "",
+        "func": "msg.payload = {\n    \"cn_current\": flow.get(\"cn_current\"),\n    \"cn_previous\": flow.get(\"cn_previous\"),\n    \"arr_current\": flow.get(\"arr_current\"),\n    \"arr_previous\": flow.get(\"arr_previous\"),\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 840,
+        "y": 280,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "8138896a98d95f98",
+        "type": "function",
+        "z": "cad35b2f8e62d8a6",
+        "name": "Build Chart",
+        "func": "var arr = flow.get(\"arr_current\")\narr.push({\"x\": flow.get(\"timestamp\"), \"y\": flow.get(\"current_battery\")})\nflow.set(\"arr_current\", arr)\n\nmsg.payload = \n[{\n    \"series\":[flow.get(\"cn_current\")],\n    \"data\": [flow.get(\"arr_current\")],\n    \"labels\":[\"\"]\n}];\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 850,
+        "y": 320,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "d32ef9f18a13e470",
+        "type": "ui_text",
+        "z": "cad35b2f8e62d8a6",
+        "group": "12eee8032e54553f",
+        "order": 16,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Current Cycle",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "x": 700,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "e0835790e6420e0d",
+        "type": "ui_text",
+        "z": "cad35b2f8e62d8a6",
+        "group": "12eee8032e54553f",
+        "order": 17,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Predict",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "x": 700,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "d3ca24846d283578",
+        "type": "function",
+        "z": "cad35b2f8e62d8a6",
+        "name": "",
+        "func": "msg.payload = flow.get(\"cn_current\")\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 540,
+        "y": 160,
+        "wires": [
+            [
+                "d32ef9f18a13e470"
+            ]
+        ]
+    }
+]
